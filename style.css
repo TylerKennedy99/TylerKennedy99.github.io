@@ -1,0 +1,162 @@
+* {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+table {
+    width: 100%;
+}
+
+#head {
+    background-color: hsl(24, 96%, 60%);
+    text-align: center;
+    font-size: 30px;
+    height: 70px;
+}
+
+#head_row {
+    background-color: #fb8537;
+    font-size: 25px;
+}
+
+.stat_row {
+    height: 61px;
+}
+
+th {
+    width: 11.111%;
+}
+
+td {
+    padding: 10px;
+    width: 11.111%;
+    background-color: #61616184;
+    text-align: center;
+}
+/* #047ac8ce */
+
+.alt_col {
+    background-color: #d6d6d6d8;
+}
+/* #75c7fdd8 */
+
+.container {
+    display: inline;   
+}
+
+button {
+    display: inline-block;
+    margin-left: 11px; 
+    margin-right: 11px; 
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px; 
+    padding-bottom: 3px;
+    font-size: 17px; 
+}
+
+.name_button {
+    display: inline-block;
+    margin-left: 11px;  
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 1px; 
+    padding-bottom: 1px;
+}
+
+.stat {
+    display: inline-block;
+    font-size: 30px;
+}
+
+.player_col {
+    background-color:  #75c7fdd8;
+}
+
+.player_alt_col {
+    background-color: #047ac8ce;
+}
+
+#bottom_box {
+    background-color: #f69f65;
+    height: 183px;
+    display: flex;
+}
+/* #f69f65 */
+
+#team_stats {
+    height: 99%;
+    width: 961px;
+    flex: 961px;
+}
+
+.team_stat_col {
+    background-color: #fb8537;
+    font-size: 30px;
+}
+
+.team_stat_col_head {
+    background-color: #fb8537;
+    font-size: 18.5px;
+}
+
+.team_stat_line {
+    height: 76px;
+}
+
+.team_button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 13px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+}
+
+.team_name {
+    font-size: 24px;
+    margin-left: 25px;
+    margin-right: 0px;
+    float: left;
+    vertical-align: center;
+}
+
+#myChart {
+    width: 300px;
+    max-width: 3000px;
+    max-height: 170px;
+    padding-top: 5px;
+}
+
+#graph_container {
+    flex: 478px;
+}
+
+#tog_container {
+    width: 150px;
+    float: right;
+    padding-top: 15px;
+}
+
+#head_title {
+    width: 750px;
+    float: left;
+    padding-left: 340px;
+}
+
+#const_button {
+    background-color: #fb8537;
+    border: 2px solid black;
+}
+
+#const_button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+
+

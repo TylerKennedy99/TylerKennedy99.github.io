@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+    <div id="head"><h1 id="head_title">Park Stats</h1><div id="tog_container"><button onclick="toggle_buttons()" id="const_button">Hide Buttons</button></div></div>
+
+    <table>
+        <tr id="head_row">
+            <th>Player</th>
+            <th>Points</th>
+            <th>Rebounds</th>
+            <th>Turnovers</th>
+            <th>Steals</th>
+            <th>Fouls</th>
+            <th>Blocks</th>
+            <th>Scrum Wins</th>
+            <th>Scrum Losses</th>
+        </tr>
+
+        <tr class="stat_row">
+            <td class="player_alt_col"><div id="p1">Player Name</div><button class="name_button" onclick="rename('p1')">✎</button></td>
+            <td id="td1s1">
+                <div class="container">
+                    <button onclick="decrement('p1s1', 'td1s1', false)">-</button>
+                    <div id="p1s1" class="stat"></div>
+                    <button onclick="increment('p1s1', 'td1s1', false)">+</button>
+                </div>
+            </td>
+            <td id="td1s2">
+                <div class="container">
+                    <button onclick="decrement('p1s2', 'td1s2', false)">-</button>
+                    <div id="p1s2" class="stat"></div>
+                    <button onclick="increment('p1s2', 'td1s2', false)">+</button>
+                </div>
+            </td>
+            <td id="td1s3">
+                <div class="container">
+                    <button onclick="decrement('p1s3', 'td1s3', false)">-</button>
+                    <div id="p1s3" class="stat"></div>
+                    <button onclick="increment('p1s3', 'td1s3', false)">+</button>
+                </div>
+            </td>
+            <td id="td1s4">
+                <div class="container">
+                    <button onclick="decrement('p1s4', 'td1s4', false)">-</button>
+                    <div id="p1s4" class="stat"></div>
+                    <button onclick="increment('p1s4', 'td1s4', false)">+</button>
+                </div>
+            </td>
+            <td id="td1s5">
+                <div class="container">
+                    <button onclick="decrement('p1s5', 'td1s5', false)">-</button>
+                    <div id="p1s5" class="stat"></div>
+                    <button onclick="increment('p1s5', 'td1s5', false)">+</button>
+                </div>
+            </td>
+            <td id="td1s6">
+                <div class="container">
+                    <button onclick="decrement('p1s6', 'td1s6', false)">-</button>
+                    <div id="p1s6" class="stat"></div>
+                    <button onclick="increment('p1s6', 'td1s6', false)">+</button>
+                </div>
+            </td>
+            <td id="td1s7">
+                <div class="container">
+                    <button onclick="decrement('p1s7', 'td1s7', false)">-</button>
+                    <div id="p1s7" class="stat"></div>
+                    <button onclick="increment('p1s7', 'td1s7', false)">+</button>
+                </div>
+            </td>
+            <td id="td1s8">
+                <div class="container">
+                    <button onclick="decrement('p1s8', 'td1s8', false)">-</button>
+                    <div id="p1s8" class="stat"></div>
+                    <button onclick="increment('p1s8', 'td1s8', false)">+</button>
+                </div>
+            </td>
+        </tr>
+  
+        <tr class="stat_row">
+            <td class="player_col" class="alt_col"><div id="p2">Player Name</div><button class="name_button" onclick="rename('p2')">✎</button></td>
+            <td class="alt_col" id="td2s1">
+                <div class="container">
+                    <button onclick="decrement('p2s1', 'td2s1', true)">-</button>
+                    <div id="p2s1" class="stat"></div>
+                    <button onclick="increment('p2s1', 'td2s1', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td2s2">
+                <div class="container">
+                    <button onclick="decrement('p2s2', 'td2s2', true)">-</button>
+                    <div id="p2s2" class="stat"></div>
+                    <button onclick="increment('p2s2', 'td2s2', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td2s3">
+                <div class="container">
+                    <button onclick="decrement('p2s3', 'td2s3', true)">-</button>
+                    <div id="p2s3" class="stat"></div>
+                    <button onclick="increment('p2s3', 'td2s3', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td2s4">
+                <div class="container">
+                    <button onclick="decrement('p2s4', 'td2s4', true)">-</button>
+                    <div id="p2s4" class="stat"></div>
+                    <button onclick="increment('p2s4', 'td2s4', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td2s5">
+                <div class="container">
+                    <button onclick="decrement('p2s5', 'td2s5', true)">-</button>
+                    <div id="p2s5" class="stat"></div>
+                    <button onclick="increment('p2s5', 'td2s5', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td2s6">
+                <div class="container">
+                    <button onclick="decrement('p2s6', 'td2s6', true)">-</button>
+                    <div id="p2s6" class="stat"></div>
+                    <button onclick="increment('p2s6', 'td2s6', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td2s7">
+                <div class="container">
+                    <button onclick="decrement('p2s7', 'td2s7', true)">-</button>
+                    <div id="p2s7" class="stat"></div>
+                    <button onclick="increment('p2s7', 'td2s7', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td2s8">
+                <div class="container">
+                    <button onclick="decrement('p2s8', 'td2s8', true)">-</button>
+                    <div id="p2s8" class="stat"></div>
+                    <button onclick="increment('p2s8', 'td2s8', true)">+</button>
+                </div>
+            </td>
+        </tr>
+  
+        <tr class="stat_row">
+            <td class="player_alt_col"><div id="p3">Player Name</div><button class="name_button" onclick="rename('p3')">✎</button></td>
+            <td id="td3s1">
+                <div class="container">
+                    <button onclick="decrement('p3s1', 'td3s1', false)">-</button>
+                    <div id="p3s1" class="stat"></div>
+                    <button onclick="increment('p3s1', 'td3s1', false)">+</button>
+                </div>
+            </td>
+            <td id="td3s2">
+                <div class="container">
+                    <button onclick="decrement('p3s2', 'td3s2', false)">-</button>
+                    <div id="p3s2" class="stat"></div>
+                    <button onclick="increment('p3s2', 'td3s2', false)">+</button>
+                </div>
+            </td>
+            <td id="td3s3">
+                <div class="container">
+                    <button onclick="decrement('p3s3', 'td3s3', false)">-</button>
+                    <div id="p3s3" class="stat"></div>
+                    <button onclick="increment('p3s3', 'td3s3', false)">+</button>
+                </div>
+            </td>
+            <td id="td3s4">
+                <div class="container">
+                    <button onclick="decrement('p3s4', 'td3s4', false)">-</button>
+                    <div id="p3s4" class="stat"></div>
+                    <button onclick="increment('p3s4', 'td3s4', false)">+</button>
+                </div>
+            </td>
+            <td id="td3s5">
+                <div class="container">
+                    <button onclick="decrement('p3s5', 'td3s5', false)">-</button>
+                    <div id="p3s5" class="stat"></div>
+                    <button onclick="increment('p3s5', 'td3s5', false)">+</button>
+                </div>
+            </td>
+            <td id="td3s6">
+                <div class="container">
+                    <button onclick="decrement('p3s6', 'td3s6', false)">-</button>
+                    <div id="p3s6" class="stat"></div>
+                    <button onclick="increment('p3s6', 'td3s6', false)">+</button>
+                </div>
+            </td>
+            <td id="td3s7">
+                <div class="container">
+                    <button onclick="decrement('p3s7', 'td3s7', false)">-</button>
+                    <div id="p3s7" class="stat"></div>
+                    <button onclick="increment('p3s7', 'td3s7', false)">+</button>
+                </div>
+            </td>
+            <td id="td3s8">
+                <div class="container">
+                    <button onclick="decrement('p3s8', 'td3s8', false)">-</button>
+                    <div id="p3s8" class="stat"></div>
+                    <button onclick="increment('p3s8', 'td3s8', false)">+</button>
+                </div>
+            </td>
+        </tr>
+  
+        <tr class="stat_row">
+            <td class="player_col" class="alt_col"><div id="p4">Player Name</div><button class="name_button" onclick="rename('p4')">✎</button></td>
+            <td class="alt_col" id="td4s1">
+                <div class="container">
+                    <button onclick="decrement('p4s1', 'td4s1', true)">-</button>
+                    <div id="p4s1" class="stat"></div>
+                    <button onclick="increment('p4s1', 'td4s1', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td4s2">
+                <div class="container">
+                    <button onclick="decrement('p4s2', 'td4s2', true)">-</button>
+                    <div id="p4s2" class="stat"></div>
+                    <button onclick="increment('p4s2', 'td4s2', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td4s3">
+                <div class="container">
+                    <button onclick="decrement('p4s3', 'td4s3', true)">-</button>
+                    <div id="p4s3" class="stat"></div>
+                    <button onclick="increment('p4s3', 'td4s3', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td4s4">
+                <div class="container">
+                    <button onclick="decrement('p4s4', 'td4s4', true)">-</button>
+                    <div id="p4s4" class="stat"></div>
+                    <button onclick="increment('p4s4', 'td4s4', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td4s5">
+                <div class="container">
+                    <button onclick="decrement('p4s5', 'td4s5', true)">-</button>
+                    <div id="p4s5" class="stat"></div>
+                    <button onclick="increment('p4s5', 'td4s5', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td4s6">
+                <div class="container">
+                    <button onclick="decrement('p4s6', 'td4s6', true)">-</button>
+                    <div id="p4s6" class="stat"></div>
+                    <button onclick="increment('p4s6', 'td4s6', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td4s7">
+                <div class="container">
+                    <button onclick="decrement('p4s7', 'td4s7', true)">-</button>
+                    <div id="p4s7" class="stat"></div>
+                    <button onclick="increment('p4s7', 'td4s7', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td4s8">
+                <div class="container">
+                    <button onclick="decrement('p4s8', 'td4s8', true)">-</button>
+                    <div id="p4s8" class="stat"></div>
+                    <button onclick="increment('p4s8', 'td4s8', true)">+</button>
+                </div>
+            </td>
+        </tr>
+  
+        <tr class="stat_row">
+            <td class="player_alt_col"><div id="p5">Player Name</div><button class="name_button" onclick="rename('p5')">✎</button></td>
+            <td id="td5s1">
+                <div class="container">
+                    <button onclick="decrement('p5s1', 'td5s1', false)">-</button>
+                    <div id="p5s1" class="stat"></div>
+                    <button onclick="increment('p5s1', 'td5s1', false)">+</button>
+                </div>
+            </td>
+            <td id="td5s2">
+                <div class="container">
+                    <button onclick="decrement('p5s2', 'td5s2', false)">-</button>
+                    <div id="p5s2" class="stat"></div>
+                    <button onclick="increment('p5s2', 'td5s2', false)">+</button>
+                </div>
+            </td>
+            <td id="td5s3">
+                <div class="container">
+                    <button onclick="decrement('p5s3', 'td5s3', false)">-</button>
+                    <div id="p5s3" class="stat"></div>
+                    <button onclick="increment('p5s3', 'td5s3', false)">+</button>
+                </div>
+            </td>
+            <td id="td5s4">
+                <div class="container">
+                    <button onclick="decrement('p5s4', 'td5s4', false)">-</button>
+                    <div id="p5s4" class="stat"></div>
+                    <button onclick="increment('p5s4', 'td5s4', false)">+</button>
+                </div>
+            </td>
+            <td id="td5s5">
+                <div class="container">
+                    <button onclick="decrement('p5s5', 'td5s5', false)">-</button>
+                    <div id="p5s5" class="stat"></div>
+                    <button onclick="increment('p5s5', 'td5s5', false)">+</button>
+                </div>
+            </td>
+            <td id="td5s6">
+                <div class="container">
+                    <button onclick="decrement('p5s6', 'td5s6', false)">-</button>
+                    <div id="p5s6" class="stat"></div>
+                    <button onclick="increment('p5s6', 'td5s6', false)">+</button>
+                </div>
+            </td>
+            <td id="td5s7">
+                <div class="container">
+                    <button onclick="decrement('p5s7', 'td5s7', false)">-</button>
+                    <div id="p5s7" class="stat"></div>
+                    <button onclick="increment('p5s7', 'td5s7', false)">+</button>
+                </div>
+            </td>
+            <td id="td5s8">
+                <div class="container">
+                    <button onclick="decrement('p5s8', 'td5s8', false)">-</button>
+                    <div id="p5s8" class="stat"></div>
+                    <button onclick="increment('p5s8', 'td5s8', false)">+</button>
+                </div>
+            </td>
+        </tr>
+  
+        <tr class="stat_row">
+            <td class="player_col" class="alt_col"><div id="p6">Player Name</div><button class="name_button" onclick="rename('p6')">✎</button></td>
+            <td class="alt_col" id="td6s1">
+                <div class="container">
+                    <button onclick="decrement('p6s1', 'td6s1', true)">-</button>
+                    <div id="p6s1" class="stat"></div>
+                    <button onclick="increment('p6s1', 'td6s1', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td6s2">
+                <div class="container">
+                    <button onclick="decrement('p6s2', 'td6s2', true)">-</button>
+                    <div id="p6s2" class="stat"></div>
+                    <button onclick="increment('p6s2', 'td6s2', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td6s3">
+                <div class="container">
+                    <button onclick="decrement('p6s3', 'td6s3', true)">-</button>
+                    <div id="p6s3" class="stat"></div>
+                    <button onclick="increment('p6s3', 'td6s3', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td6s4">
+                <div class="container">
+                    <button onclick="decrement('p6s4', 'td6s4', true)">-</button>
+                    <div id="p6s4" class="stat"></div>
+                    <button onclick="increment('p6s4', 'td6s4', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td6s5">
+                <div class="container">
+                    <button onclick="decrement('p6s5', 'td6s5', true)">-</button>
+                    <div id="p6s5" class="stat"></div>
+                    <button onclick="increment('p6s5', 'td6s5', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td6s6">
+                <div class="container">
+                    <button onclick="decrement('p6s6', 'td6s6', true)">-</button>
+                    <div id="p6s6" class="stat"></div>
+                    <button onclick="increment('p6s6', 'td6s6', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td6s7">
+                <div class="container">
+                    <button onclick="decrement('p6s7', 'td6s7', true)">-</button>
+                    <div id="p6s7" class="stat"></div>
+                    <button onclick="increment('p6s7', 'td6s7', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td6s8">
+                <div class="container">
+                    <button onclick="decrement('p6s8', 'td6s8', true)">-</button>
+                    <div id="p6s8" class="stat"></div>
+                    <button onclick="increment('p6s8', 'td6s8', true)">+</button>
+                </div>
+            </td>
+        </tr>
+  
+        <tr class="stat_row">
+            <td class="player_alt_col"><div id="p7">Player Name</div><button class="name_button" onclick="rename('p7')">✎</button></td>
+            <td id="td7s1">
+                <div class="container">
+                    <button onclick="decrement('p7s1', 'td7s1', false)">-</button>
+                    <div id="p7s1" class="stat"></div>
+                    <button onclick="increment('p7s1', 'td7s1', false)">+</button>
+                </div>
+            </td>
+            <td id="td7s2">
+                <div class="container">
+                    <button onclick="decrement('p7s2', 'td7s2', false)">-</button>
+                    <div id="p7s2" class="stat"></div>
+                    <button onclick="increment('p7s2', 'td7s2', false)">+</button>
+                </div>
+            </td>
+            <td id="td7s3">
+                <div class="container">
+                    <button onclick="decrement('p7s3', 'td7s3', false)">-</button>
+                    <div id="p7s3" class="stat"></div>
+                    <button onclick="increment('p7s3', 'td7s3', false)">+</button>
+                </div>
+            </td>
+            <td id="td7s4">
+                <div class="container">
+                    <button onclick="decrement('p7s4', 'td7s4', false)">-</button>
+                    <div id="p7s4" class="stat"></div>
+                    <button onclick="increment('p7s4', 'td7s4', false)">+</button>
+                </div>
+            </td>
+            <td id="td7s5">
+                <div class="container">
+                    <button onclick="decrement('p7s5', 'td7s5', false)">-</button>
+                    <div id="p7s5" class="stat"></div>
+                    <button onclick="increment('p7s5', 'td7s5', false)">+</button>
+                </div>
+            </td>
+            <td id="td7s6">
+                <div class="container">
+                    <button onclick="decrement('p7s6', 'td7s6', false)">-</button>
+                    <div id="p7s6" class="stat"></div>
+                    <button onclick="increment('p7s6', 'td7s6', false)">+</button>
+                </div>
+            </td>
+            <td id="td7s7">
+                <div class="container">
+                    <button onclick="decrement('p7s7', 'td7s7', false)">-</button>
+                    <div id="p7s7" class="stat"></div>
+                    <button onclick="increment('p7s7', 'td7s7', false)">+</button>
+                </div>
+            </td>
+            <td id="td7s8">
+                <div class="container">
+                    <button onclick="decrement('p7s8', 'td7s8', false)">-</button>
+                    <div id="p7s8" class="stat"></div>
+                    <button onclick="increment('p7s8', 'td7s8', false)">+</button>
+                </div>
+            </td>
+        </tr>
+  
+        <tr class="stat_row">
+            <td class="player_col" class="alt_col"><div id="p8">Player Name</div><button class="name_button" onclick="rename('p8')">✎</button></td>
+            <td class="alt_col" id="td8s1">
+                <div class="container">
+                    <button onclick="decrement('p8s1', 'td8s1', true)">-</button>
+                    <div id="p8s1" class="stat"></div>
+                    <button onclick="increment('p8s1', 'td8s1', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td8s2">
+                <div class="container">
+                    <button onclick="decrement('p8s2', 'td8s2', true)">-</button>
+                    <div id="p8s2" class="stat"></div>
+                    <button onclick="increment('p8s2', 'td8s2', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td8s3">
+                <div class="container">
+                    <button onclick="decrement('p8s3', 'td8s3', true)">-</button>
+                    <div id="p8s3" class="stat"></div>
+                    <button onclick="increment('p8s3', 'td8s3', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td8s4">
+                <div class="container">
+                    <button onclick="decrement('p8s4', 'td8s4', true)">-</button>
+                    <div id="p8s4" class="stat"></div>
+                    <button onclick="increment('p8s4', 'td8s4', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td8s5">
+                <div class="container">
+                    <button onclick="decrement('p8s5', 'td8s5', true)">-</button>
+                    <div id="p8s5" class="stat"></div>
+                    <button onclick="increment('p8s5', 'td8s5', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td8s6">
+                <div class="container">
+                    <button onclick="decrement('p8s6', 'td8s6', true)">-</button>
+                    <div id="p8s6" class="stat"></div>
+                    <button onclick="increment('p8s6', 'td8s6', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td8s7">
+                <div class="container">
+                    <button onclick="decrement('p8s7', 'td8s7', true)">-</button>
+                    <div id="p8s7" class="stat"></div>
+                    <button onclick="increment('p8s7', 'td8s7', true)">+</button>
+                </div>
+            </td>
+            <td class="alt_col" id="td8s8">
+                <div class="container">
+                    <button onclick="decrement('p8s8', 'td8s8', true)">-</button>
+                    <div id="p8s8" class="stat"></div>
+                    <button onclick="increment('p8s8', 'td8s8', true)">+</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div id="bottom_box">
+        <div id="team_stats">
+            <table>
+                <tr>
+                    <th class="team_stat_col_head">Team</th>
+                    <th class="team_stat_col_head">Points</th>
+                    <th class="team_stat_col_head">Rebounds</th>
+                    <th class="team_stat_col_head">Turnovers</th>
+                    <th class="team_stat_col_head">Steals</th>
+                    <th class="team_stat_col_head">Fouls</th>
+                </tr>
+                <tr class="team_stat_line">
+                    <td class="team_stat_col"><div class="team_name" id="team_1_name">Team 1</div><button class="team_button" onclick="rename('team_1_name')">✎</button></td>
+                    <td class="team_stat_col" id="team1points"></td>
+                    <td class="team_stat_col" id="team1rebounds"></td>
+                    <td class="team_stat_col" id="team1blocks"></td>
+                    <td class="team_stat_col" id="team1steals"></td>
+                    <td class="team_stat_col" id="team1fouls"></td>
+                </tr>
+                <tr class="team_stat_line">
+                    <td class="team_stat_col"><div class="team_name" id="team_2_name">Team 2</div><button class="team_button" onclick="rename('team_2_name')">✎</button></td>
+                    <td class="team_stat_col" id="team2points"></td>
+                    <td class="team_stat_col" id="team2rebounds"></td>
+                    <td class="team_stat_col" id="team2blocks"></td>
+                    <td class="team_stat_col" id="team2steals"></td>
+                    <td class="team_stat_col" id="team2fouls"></td>
+                </tr>
+            </table> 
+        </div> 
+        <div id="graph_container"><canvas id="myChart"></canvas></div>
+    </div>
+
+
+
+<script>
+
+    function increment(id, td_id, alt_col) {
+        var elem = document.getElementById(id);
+        var value = parseInt(elem.innerHTML);
+        if(!Number.isInteger(value)) {
+            elem.innerHTML = 1;
+            add_col(td_id, alt_col);
+        }
+        else {
+            elem.innerHTML = value + 1;
+        }  
+        
+        if(id.charAt(3) == 1) {
+            if(id.charAt(1) <= 4) {
+                team_stat_increment(1, id.charAt(3));
+                team_1_score += 1;
+                yValues_t1.push(team_1_score);
+                yValues_t2.push(team_2_score);
+                xValues.push(team_2_score + team_1_score);
+                if(team_1_score > team_2_score) {
+                    higher_score = team_1_score;
+                }
+                refresh();
+            }
+            else {
+                team_stat_increment(2, id.charAt(3));
+                team_2_score += 1;
+                yValues_t2.push(team_2_score);
+                yValues_t1.push(team_1_score);
+                xValues.push(team_2_score + team_1_score);
+                if(team_2_score > team_1_score) {
+                    higher_score = team_2_score;
+                }
+                refresh();
+            }
+        }
+    }
+
+    function decrement(id, td_id, alt_col) {
+        var elem = document.getElementById(id);
+        var value = elem.innerHTML;
+        if(Number.isInteger(parseInt(value))) {
+            elem.innerHTML = parseInt(value) - 1;
+            if(value == "1") {
+                elem.innerHTML = "";
+                remove_col(td_id, alt_col);
+            }
+
+            if(id.charAt(3) == 1) {
+                if(id.charAt(1) <= 4) {
+                    team_stat_decrement(1, id.charAt(3));
+
+                    team_1_score -= 1;
+                    pop_scores(1)
+                    xValues.pop();
+                    if(team_1_score >= team_2_score) {
+                        higher_score = team_1_score;
+                    }
+                    refresh();
+                }
+                else {
+                    team_stat_decrement(2, id.charAt(3));
+
+                    team_2_score -= 1;
+                    pop_scores(2);
+                    xValues.pop();
+                    if(team_2_score >= team_1_score) {
+                        higher_score = team_2_score;
+                    }
+                    refresh();
+                }
+            }
+        }
+    }
+
+    function team_stat_increment(team, stat) {
+        if(team == 1) {
+            if(stat == 1) {
+                var elem = document.getElementById("team1points");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+            else if(stat == 2) {
+                var elem = document.getElementById("team1rebounds");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+            else if(stat == 3) {
+                var elem = document.getElementById("team1blocks");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+            else if(stat == 4) {
+                var elem = document.getElementById("team1steals");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+            else if(stat == 5) {
+                var elem = document.getElementById("team1fouls");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+        }
+        else {
+            if(stat == 1) {
+                var elem = document.getElementById("team2points");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+            else if(stat == 2) {
+                var elem = document.getElementById("team2rebounds");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+            else if(stat == 3) {
+                var elem = document.getElementById("team2blocks");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+            else if(stat == 4) {
+                var elem = document.getElementById("team2steals");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+            else if(stat == 5) {
+                var elem = document.getElementById("team2fouls");
+                var value = parseInt(elem.innerHTML);
+                if(!Number.isInteger(value)) {
+                    elem.innerHTML = 1;
+                }
+                else {
+                    elem.innerHTML = value + 1;
+                }  
+            }
+        }
+    }
+
+    function team_stat_decrement(team, stat) {
+        if(team == 1) {
+            if(stat == 1) {
+                var elem = document.getElementById("team1points");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+            else if(stat == 2) {
+                var elem = document.getElementById("team1rebounds");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+            else if(stat == 3) {
+                var elem = document.getElementById("team1blocks");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+            else if(stat == 4) {
+                var elem = document.getElementById("team1steals");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+            else if(stat == 5) {
+                var elem = document.getElementById("team1fouls");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+        }
+        else {
+            if(stat == 1) {
+                var elem = document.getElementById("team2points");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+            else if(stat == 2) {
+                var elem = document.getElementById("team2rebounds");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+            else if(stat == 3) {
+                var elem = document.getElementById("team2blocks");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+            else if(stat == 4) {
+                var elem = document.getElementById("team2steals");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+            else if(stat == 5) {
+                var elem = document.getElementById("team2fouls");
+                var value = elem.innerHTML;
+                if(Number.isInteger(parseInt(value))) {
+                    elem.innerHTML = parseInt(value) - 1;
+                    if(value == "1") {
+                        elem.innerHTML = "";
+                    }
+                }
+            }
+        }
+        
+    }
+
+    function rename(id) {
+        var elem = document.getElementById(id);
+        elem.innerHTML = window.prompt("Enter player name");
+    }
+
+    function add_col(td_id, alt_col) {
+        if(alt_col == false) {
+            document.getElementById(td_id).style.backgroundColor = "#047ac8ce";
+        }
+        else {
+            document.getElementById(td_id).style.backgroundColor = "#75c7fdd8";
+        }
+    }
+
+    function remove_col(td_id, alt_col) {
+        if(alt_col == false) {
+            document.getElementById(td_id).style.backgroundColor = "#61616184";
+        }
+        else {
+            document.getElementById(td_id).style.backgroundColor = "#d6d6d6d8";
+        }
+    }
+
+
+    /* Graph code */
+    var xValues = [0];
+    var yValues_t1 = [0];
+    var yValues_t2 = [0];
+    var team_1_score = 0;
+    var team_2_score = 0;
+    var higher_score = 0;
+
+    refresh()
+
+    function refresh() {  
+        total_score = team_1_score + team_2_score;  
+
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: false,
+                    pointRadius: 0,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,0,1)",
+                    borderColor: "rgba(0,0,0,1)",
+                    data: yValues_t1
+                },
+                {
+                    fill: false,
+                    pointRadius: 0,
+                    lineTension: 0,
+                    backgroundColor: "rgba(255,255,255,1)",
+                    borderColor: "rgba(255,255,255,1)",
+                    data: yValues_t2
+                }]
+            },
+            options: {
+                legend: {display: false},
+                scales: {
+                    yAxes: [{ticks: {min: 0, max: (higher_score + 1),
+                        callback: function(value, index, ticks) {
+                                if(value % 5 == 0) {
+                                    return value;
+                                }
+                                else if(value == higher_score) {
+                                    return value;
+                                }
+                            }
+                        }
+                    }],
+                }
+            }
+        });
+    }
+
+    function pop_scores(team) {
+        var team_to_decrement = [];
+        var team_to_realign = [];
+        if(team == 1) {
+            team_to_decrement = yValues_t1;
+            team_to_realign = yValues_t2;
+        }
+        else {
+            team_to_decrement = yValues_t2;
+            team_to_realign = yValues_t1;
+        }
+
+        var current_score = team_to_decrement[(team_to_decrement.length - 1)];
+        var index_to_remove = 0;
+
+        for(let i = (team_to_decrement.length - 1); i >= 0; i--) {
+            if(team_to_decrement[i] != current_score) {
+                index_to_remove = i;
+                break;
+            }
+            team_to_decrement[i] = current_score - 1;
+        }
+        team_to_decrement.splice(index_to_remove, 1);
+        team_to_realign.splice(index_to_remove, 1);
+    }
+
+    var make_visible_val = false;
+
+    function toggle_buttons() {
+        var button_counter = 0;
+
+        var button = document.getElementsByTagName('button')[button_counter];
+
+        if(make_visible_val == 0) {
+
+            while(button != undefined) {
+                button.style.display = 'none';
+                button_counter += 1;
+                button = document.getElementsByTagName('button')[button_counter];
+            }
+
+            document.getElementById('const_button').style.display = 'inline-block';
+            make_visible_val = 1;
+        }
+        else {
+            while(button != undefined) {
+                button.style.display = 'inline-block';
+                button_counter += 1;
+                button = document.getElementsByTagName('button')[button_counter];
+            }
+            make_visible_val = 0;
+        }
+    }
+
+</script>
+
+</body>
+</html>
